@@ -1,0 +1,79 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o número pensado</button>
+
+<script>
+
+    function sorteia() {
+
+        return Math.round(Math.random() * 10);
+    }
+
+    function sorteiaNumeros(quantidade) {
+
+        var adivinha = [];
+
+        var numero = 1;
+
+        while(numero <= quantidade) {
+
+            var numeroAleatorio = sorteia();
+
+            if(numeroAleatorio !== 0) {
+
+            var achou = false;
+
+            for(var posicao = 0; posicao < adivinha.length; posicao++) {
+
+                if(adivinha[posicao] == numeroAleatorio) {
+                    achou = true;
+                    break;
+                }
+            }
+
+            if (achou == false) {
+                adivinha.push(numeroAleatorio);
+                numero++;
+                }
+            }
+        }
+
+        return adivinha;
+    }
+    
+    var adivinha = sorteiaNumeros(5);
+
+    console.log(adivinha);
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+        
+        var achou = false;
+
+        for(var posicao = 0; posicao < adivinha.length; posicao++) {
+        
+            if(input.value == adivinha[posicao]) {
+
+                alert("Você ACERTOU!!!");
+                achou = true;
+                break;
+        }
+    }
+
+    if(achou == false) {
+
+        alert("Você ERROU!!!");
+    }
+    
+
+    input.value = "";
+    input.focus();
+}
+
+    var button = document.querySelector("button");
+    button.onclick = verifica;
+
+</script>
