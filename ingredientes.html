@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 
-<h1>Receitas do Yan</h1>
+<h1>Receitas da Stefany</h1>
 
 <script>
     var ingredientes = [];
@@ -13,23 +13,23 @@
 
         var ingrediente = prompt("Informe o ingrediente " + contador);
 
-        ingredientes.push(ingrediente);
-
         var existe = false;
 
-        for(var posicao = 0; posicao < ingredientes.length; posicao++) {
+        for( var posicao = 0; posicao < ingredientes.length; posicao++) {
 
-            if(ingredientes[posicao] == ingrediente) {
+            if( ingredientes[posicao] == ingrediente) {
+
                 existe = true;
                 break;
             }
         }
 
-            if (existe == false) {
-                ingredientes.push(ingrediente);
-                contador++;
-            }
+        if( existe == false) {
+
+            ingredientes.push(ingrediente);
+            contador++;
         }
+    }
 
     console.log(ingredientes);
 </script>
